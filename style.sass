@@ -1,0 +1,364 @@
+@import ../_boiler-plate
+
+/* Sass Variables */
+
+$green: #576c52
+$purple: #655F73
+$title-text: 'ZCOOL XiaoWei', serif
+$cursive: 'Great Vibes', cursive 
+
+html
+	scroll-behavior: smooth
+
+body
+	font-family: $title-text
+
+/* Fade in and out animation */
+
+.fade-container
+	width: 100vw
+	height: 100vh
+	background: $green
+	position: fixed
+	top: 0
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	align-content: space-evenly
+	animation: fade-out 1s linear 4s forwards
+	z-index: 10
+	.title-fade,
+	.logo-fade,
+	.name-fade
+		width: 60vw
+		display: flex
+		align-items: center
+		justify-content: center
+		opacity: 0
+	.title-fade,
+	.name-fade
+		height: 10vh
+		color: #fff
+		text-align: center
+	.title-fade
+		font-size: 3rem
+		animation: fade-in 0.5s ease-in 1s forwards
+		font-family: $cursive
+	.logo-fade
+		height: 60vh
+		img
+			width: 100%
+			height: 100%
+			border-radius: 15px
+		animation: fade-in 0.5s ease-in forwards
+	.name-fade
+		font-size: 2rem
+		animation: fade-in 1s ease-in 2s forwards
+
+@keyframes fade-out
+	0%
+		opacity: 1
+	100%
+		opacity: 0
+		z-index: -1
+
+@keyframes fade-in
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+
+/* Header */
+
+header
+	width: 100%
+	height: 64px
+	position: fixed
+	top: 0
+	z-index: 1
+	background: $green
+	box-shadow: 0px 1px 10px 3px #1f2b1c
+	#logo
+		position: absolute
+		top: 0px
+		left: 40px
+		height: 100px
+		width: 100px
+		padding: 5px
+		border-radius: 5px
+	#title
+		height: 64px
+		max-width: 50%
+		margin-left: 150px
+		font-family: $cursive
+		display: flex
+		align-items: flex-end
+		h1
+			display: inline
+			font-size: 2.5rem
+			line-height: 2.5rem
+			padding-bottom: 5px
+	.hamburger-wrapper,
+	.toggle
+		width: 64px
+		height: 64px
+		position: absolute
+		top: 0
+		right: 40px
+	.toggle
+		z-index: 10
+		opacity: 0
+		cursor: pointer
+	.hamburger-menu
+		height: 64px
+		width: 64px
+		display: flex
+		justify-content: center
+		align-items: center
+		.middle-bar
+			height: 5px
+			width: 50px
+			border-radius: 5px
+			background: #000
+		.middle-bar::before,
+		.middle-bar::after
+			content: ''
+			position: absolute
+			height: 5px
+			width: 50px
+			border-radius: 5px
+			background: #000
+		.middle-bar::before
+			top: 15px
+		.middle-bar::after
+			bottom: 15px
+	.toggle:checked ~ .hamburger-wrapper
+		transform: rotate(135deg)
+		transition: transform 0.5s linear
+	.toggle:checked ~ .hamburger-wrapper .middle-bar:before,
+	.toggle:checked ~ .hamburger-wrapper .middle-bar:after
+		transform: rotate(90deg)
+		transition: transform 0.5s linear
+		top: 30px
+	.navigation
+		width: 30%
+		position: absolute
+		margin-top: 64px
+		padding: 0
+		right: -50%
+		top: 0
+		text-align: center
+		a
+			text-decoration: none
+			color: #fff
+			font-size: 1.6rem
+			background: $green
+			li
+				padding: 30px 0
+				border: 1px solid #fff
+				background: $green
+		a:nth-child(odd) li
+			background: #A0B29B
+	.toggle:checked ~ .navigation
+		right: 0
+		transition: right 0.7s ease-out
+
+/* About */
+
+.about-container
+	width: 100%
+	min-height: 100vh
+	margin-top: 64px
+	padding-bottom: 20px
+	display: flex
+	justify-content: center
+	align-items: center
+	background-image: url('images/background-forest.jpg')
+	background-repeat: no-repeat
+	background-size: cover
+	background-attachment: fixed
+	.about-content
+		width: 90%
+		background: rgba(0,0,0,0.5)
+		border-radius: 7px
+		position: relative
+		h1
+			padding: 20px
+			font-size: 2rem
+			line-height: 2rem
+			color: #fff
+		#picture
+			width: 40%
+			min-width: 275px
+			min-height: 275px
+			max-width: 400px
+			max-height: 400px
+			padding: 20px
+			box-sizing: border-box
+			float: left
+			position: relative
+			img
+				width: 100%
+		p
+			padding: 20px
+			color: #fff
+			font-size: 1.2rem
+			line-height: 2rem
+
+/* Readings section */
+
+.readings
+	width: 100%
+	height: auto
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+	background: $purple
+	.readings-description
+		width: 70%
+		line-height: 1.8rem
+		font-size: 1.2rem
+		padding: 40px
+		box-sizing: border-box
+		background-color: rgba(255,255,255,0.3)
+		h1
+			padding: 20px 0
+			font-size: 2rem
+
+.flex
+	background-image: url('images/reading-background.jpg')
+	background-size: cover
+	background-repeat: no-repeat
+	background-attachment: fixed
+	padding: 100px 0
+.flex-container
+	min-height: 400px
+	width: 90%
+	margin: auto
+	display: flex
+	align-items: center
+	justify-content: center
+	.flex-background
+		width: 400px
+		height: 265px
+		margin: 20px
+	#tarot
+		background: url('images/tarot.jpg')
+		background-size: cover
+	#runes
+		background: url('images/runes.jpg')
+		background-size: cover
+	#palm
+		background: url('images/hands.jpg')
+		background-size: cover
+	.flex-title
+		font-size: 2rem
+		padding: 5px 0 5px 15px
+		background: rgba(255,255,255,0.6)
+	.flex-content
+		width: calc(90% - 400px)
+		height: 265px
+		margin: 20px
+		display: flex
+		flex-flow: column
+		justify-content: center
+		color: #fff
+		h2
+			font-size: 1.6rem
+			padding: 5px
+			font-style: italic
+		p
+			font-size: 1.4rem
+			line-height: 1.8rem
+			padding: 5px
+		#rune-content
+			margin-left: calc(20% - 10px)
+
+/* Contact Section */
+
+.contact
+	width: 100%
+	height: auto
+	background: $purple
+	h1
+		text-align: center
+		font-size: 3rem
+		padding-bottom: 60px
+	.contact-container
+		width: 70%
+		min-width: 320px
+		margin: auto
+		padding: 60px 0
+		background-color: rgba(255,255,255,0.3)
+		.icon-wrap
+			display: flex
+			margin-bottom: 60px
+			align-items: center
+			justify-content: space-evenly
+			img
+				width: 100px
+		#facebook-events
+			margin: 20px auto
+			width: 500px
+
+
+/* Media Queries */
+
+@media screen and (max-width: 768px)
+	.about-container
+		float: none
+		padding-top: 50px
+	.flex-container
+		width: 80vw
+		flex-flow: column
+		border: 1px solid #fff
+		margin: 40px auto
+		.flex-background
+			width: 80vw
+			margin: 0
+			height: calc(80vw * 0.6625)
+		#runes
+			order: 1
+		.flex-content
+			order: 2
+			height: auto
+			width: 75vw
+			padding: 20px
+			margin: 0 auto
+			#rune-content
+				margin-left: 0
+	.contact
+		.contact-container
+			#facebook-events
+				width: 300px
+
+@media screen and (max-width: 600px)
+	header
+		.navigation
+			width: 50%
+		#title
+			display: none
+	.contact
+		.contact-container
+			.icon-wrap
+				img
+					width: 50px
+
+
+@media screen and (max-width: 450px)
+	.about-container
+		.about-content
+			#picture
+				float: none
+				margin: auto
+	.readings
+		.readings-description
+			padding: 10px
+
+
+
+
+
+
+
+
